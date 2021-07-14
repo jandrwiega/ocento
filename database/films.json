@@ -1,0 +1,20 @@
+{
+    "Films": [
+        {
+            "id": "1",
+            "title": "title 1",
+            "release_date": "2021-04-02",
+            "avg_rate": "3.5",
+            "count_rate": "45",
+            "description": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem"
+        },
+        {
+            "id": "2",
+            "title": "title 2",
+            "release_date": "2019-06-22",
+            "avg_rate": "4.5",
+            "count_rate": "455",
+            "description": "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem"
+        }
+    ]
+}
