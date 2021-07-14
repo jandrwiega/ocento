@@ -3,10 +3,10 @@ import { createContext, useState } from 'react';
 export const AppContext = createContext();
 
 const AppProvider = ({children}) => {
-    const [userLogged, setUserLogged] = useState(false)
-    const handleUserLogged = () => setUserLogged(!userLogged)
+    const [isUserLogged, setIsUserLogged] = useState(false)
+    
     return ( 
-        <AppContext.Provider value={{ userLogged, handleUserLogged }}>
+        <AppContext.Provider value={{ isUserLogged }}>
             {children}
         </AppContext.Provider>
      );

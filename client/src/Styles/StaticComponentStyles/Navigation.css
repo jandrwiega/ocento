@@ -1,0 +1,115 @@
+nav {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav > a > img {
+    height: 50px;
+}
+nav > aside {
+    display: flex;
+    height: 40px;
+}
+nav > aside > a {
+    text-decoration: none;
+}
+nav > aside > a:first-child {
+    margin-right: 1em;
+}
+
+.mobileMenu {
+    height: 100vh;
+    width: calc(200px + 3em);
+    padding: 1em 1.5em;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: calc(-200px - 3em);
+    transition: right .3s ease-in-out;
+    box-shadow: 0 0px 50px rgb(0 0 0 / 20%);
+}
+#mobileMenuIsActive {
+    right: 0;
+}
+.mobileMenuToggle {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+}
+.mobileMenuToggle > div {
+    width: 25px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    transition: all .3s ease-in-out;
+}
+.mobileMenuToggle > div:nth-child(1) {
+    top: calc(50% - 5px);
+}
+.mobileMenuToggle > div:nth-child(2) {
+    top: calc(50% + 5px);
+}
+#topToggleActive {
+    transform: translateY(5px) rotate(45deg);
+}
+#bottomToggleActive {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+.closemobileMenu {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+.closemobileMenu > svg {
+    margin-right: .3em;
+    width: 20px;
+    height: 20px;
+}
+.mobileMenu > a {
+    text-decoration: none;
+    width: 100%;
+}
+.mobileMenu > a > button {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+@media(max-width: 799px) {
+    nav {
+        padding: .5em 1em;
+    }
+    nav > aside {
+        display: none;
+    }
+}
+
+
+
+@media(min-width: 800px) and (max-width: 1199px) {
+    nav {
+        padding: 1em 1.5em;
+    }
+    .mobileMenu, .mobileMenuToggle {
+        display: none;
+    }
+}
+
+
+
+
+@media(min-width: 1200px) {
+    nav {
+        padding: 1.5em 2em;
+    }
+    .mobileMenu, .mobileMenuToggle {
+        display: none;
+    }
+}
