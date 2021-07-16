@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
-import { DB_password } from './config.js'
+import { DB_host, DB_user, DB_password, DB_database } from './config.js'
 
 const app = express();
 const dirname = path.resolve();
@@ -40,3 +40,17 @@ app.post('/register', (req, res)=> {
     console.log(name, surname, email, password);
 })
 //--Middleware for login and register--//
+
+//Middleware for userForms
+app.post('/useridea', (req, res)=> {
+    const rb = req.body;
+
+    const title = rb.title;
+    const idea = rb.idea;
+    const name = rb.name;
+    const email = rb.email;
+    const reason = rb.reason;
+
+    console.log(title, idea, name, email, reason);
+})
+//--Middleware form userForms--//

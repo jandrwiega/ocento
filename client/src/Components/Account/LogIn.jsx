@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../Context/AppContext';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import { GoogleLogin } from 'react-google-login';
 
 import ResetForm from './ResetForm';
 
@@ -14,6 +16,13 @@ import Zoom from 'react-reveal/Zoom';
 
 const LogIn = () => {
     const { fetchLink } = useContext(AppContext)
+
+    const responseFacebook = (response) => {
+        console.log(response);
+    }
+    const responseGoogle = (response) => {
+        console.log(response);
+      }
 
     useEffect(()=> {
         const wrapper = document.querySelector('.wrapper');
@@ -73,10 +82,13 @@ const LogIn = () => {
                 <div className="loginwithsocialmedia">
                     <span>Zaloguj się przez</span>
                     <div className="socialicon">
-                        <img src={facebookIcon} alt="" />
+                        <FacebookLogin appId="135339998730013" callback={responseFacebook}
+                            render={renderProps => ( <img src={facebookIcon} onClick={renderProps.onClick} alt="" /> )} />
                     </div>
                     <div className="socialicon">
-                        <img src={googleIcon} alt="" />
+                        <GoogleLogin
+                            clientId="1234567890-abc123def456.apps.googleusercontent.com"
+                            render={renderProps => ( <img src={googleIcon} onClick={renderProps.onClick} alt="" />) } onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={'single_host_origin'} />
                     </div>
                 </div></>}
             </form> 

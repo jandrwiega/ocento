@@ -8,6 +8,8 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import MainPage from './Pages/MainPage'
 
+import Idea from './Pages/Idea';
+
 import '../Styles/App.css';
 import '../Styles/StaticComponentStyles/Main.css';
 
@@ -22,6 +24,7 @@ const App = () => {
                         <Route exact path='/logowanie' children={<LogIn />}></Route>
                         <Route exact path='/rejstracja' children={<Register />}></Route>
                         <Route exact path='/' children={<MainPage />} />
+                        <Route exact path='/pomysly' children={<Idea />}></Route>
                     </Switch>
                     </main>
                     <Switch>

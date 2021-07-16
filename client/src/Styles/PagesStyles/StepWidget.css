@@ -1,0 +1,78 @@
+
+#stepdone {
+    background-color: teal;
+}
+#middledone {
+    background-color: teal;
+}
+
+.stepwidget {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1em 0 0 0;
+}
+.stepwidget--progress {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    width: 90%;
+    padding: 0 35px;
+}
+.stepwidget--progress--icon {
+    width: 30px;
+    min-width: 30px;
+    height: 30px; 
+    border-radius: 50%;
+    background-color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stepwidget--progress--icon > svg {
+    width: 18px;
+    height: 18px;
+    color: white;
+}
+.stepwidget--progress--middle {
+    max-width: 150px;
+    width: 100%;
+    min-width: 30px;
+    margin: 0 12.5px;
+    height: 3px ;
+    background-color: silver;
+}
+.stepwidget--labels {
+    width: 90%;
+    max-width: 500px;
+    padding: .5em 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.stepwidget--labels > ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+}
+@media(max-width: 559px) {
+    .stepwidget--labels > ul > li {
+        font-size: .5rem;
+        width: 100px;
+        text-align: center;
+    }
+}
+@media(min-width: 560px) {
+    .stepwidget--labels > ul > li {
+        font-size: .8rem;
+        width: 100px;
+        text-align: center;
+    }
+}
+.stepwidget--labels > button {
+    margin: 1em;
+}
