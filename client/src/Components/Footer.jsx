@@ -1,8 +1,12 @@
+
+
+import '../Styles/StaticComponentStyles/Footer.css';
+
 const Footer = () => {
     return ( 
-        <>
-        Stopka strony
-        </>
+       <footer>
+
+       </footer>
      );
 }
  

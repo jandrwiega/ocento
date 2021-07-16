@@ -39,8 +39,8 @@ const Navigation = () => {
             <Link to='/'><img src={logo} alt="logo ocenmyto.pl" /></Link>
             {isUserLogged ? null : 
                 <aside>
-                    <Link to='/logowanie'><Button variant="outlined" color="secondary">Logowanie</Button></Link>
-                    <Link to='/rejstracja'><Button variant="outlined" color="secondary">Rejstracja</Button></Link>
+                    <Link to='/logowanie'><Button variant="outlined" color="primary">Logowanie</Button></Link>
+                    <Link to='/rejstracja'><Button variant="outlined" color="primary">Rejstracja</Button></Link>
                 </aside>
             }
             <div className="mobileMenuToggle" onClick={showMobileMenuToggleButtonRef}>

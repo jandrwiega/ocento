@@ -1,0 +1,22 @@
+@media(max-width: 799px) {
+    main {
+        min-height: calc(100vh - 50px - 1em);
+    }
+}
+
+
+
+@media(min-width: 800px) and (max-width: 1199px) {
+    main {
+        min-height: calc(100vh - 50px - 2em);
+    }
+}
+
+
+
+
+@media(min-width: 1200px) {
+    main {
+        min-height: calc(100vh - 50px - 3em);
+    }
+}

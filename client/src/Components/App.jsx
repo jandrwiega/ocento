@@ -9,6 +9,7 @@ import Footer from './Footer';
 import MainPage from './Pages/MainPage'
 
 import '../Styles/App.css';
+import '../Styles/StaticComponentStyles/Main.css';
 
 const App = () => {
     return ( 
@@ -16,13 +17,16 @@ const App = () => {
             <AppProvider>
                 <Router>
                     <Navigation />
+                    <main>
                     <Switch>
                         <Route exact path='/logowanie' children={<LogIn />}></Route>
                         <Route exact path='/rejstracja' children={<Register />}></Route>
-
                         <Route exact path='/' children={<MainPage />} />
                     </Switch>
-                    <Footer />
+                    </main>
+                    <Switch>
+                        <Route exact path='/' children={<Footer />} />
+                    </Switch>
                 </Router>
             </AppProvider>
         </div>

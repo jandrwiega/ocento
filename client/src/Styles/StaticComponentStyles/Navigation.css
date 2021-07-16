@@ -4,6 +4,9 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
+nav > a {
+    height: 50px;
+}
 nav > a > img {
     height: 50px;
 }
