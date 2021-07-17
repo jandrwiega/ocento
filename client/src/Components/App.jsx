@@ -7,6 +7,7 @@ import Register from './Account/Register';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import MainPage from './Pages/MainPage'
+import Works from './Pages/Works'
 
 import Idea from './Pages/Idea';
 
@@ -21,10 +22,11 @@ const App = () => {
                     <Navigation />
                     <main>
                     <Switch>
-                        <Route exact path='/logowanie' children={<LogIn />}></Route>
-                        <Route exact path='/rejstracja' children={<Register />}></Route>
+                        <Route exact path='/logowanie' children={<LogIn />} />
+                        <Route exact path='/rejstracja' children={<Register />} />
                         <Route exact path='/' children={<MainPage />} />
-                        <Route exact path='/pomysly' children={<Idea />}></Route>
+                        <Route exact path='/pomysly' children={<Idea />} />
+                        <Route exact path='/praca' children={<Works />} />
                     </Switch>
                     </main>
                     <Switch>

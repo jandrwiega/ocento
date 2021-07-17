@@ -1,15 +1,15 @@
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../Context/AppContext';
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import { GoogleLogin } from 'react-google-login';
+//import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+//import { GoogleLogin } from 'react-google-login';
 
 import ResetForm from './ResetForm';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import facebookIcon from '../../Data/facebook.svg';
-import googleIcon from '../../Data/google.svg';
+//import facebookIcon from '../../Data/facebook.svg';
+//import googleIcon from '../../Data/google.svg';
 
 import '../../Styles/AccountStyles/LogIn.css'
 import Zoom from 'react-reveal/Zoom';
@@ -17,12 +17,12 @@ import Zoom from 'react-reveal/Zoom';
 const LogIn = () => {
     const { fetchLink } = useContext(AppContext)
 
-    const responseFacebook = (response) => {
+    /*const responseFacebook = (response) => {
         console.log(response);
     }
     const responseGoogle = (response) => {
         console.log(response);
-      }
+      }*/
 
     useEffect(()=> {
         const wrapper = document.querySelector('.wrapper');
@@ -79,7 +79,7 @@ const LogIn = () => {
                 <Button type='submit' variant="outlined" color="primary">Zaloguj się</Button>
                 <span onClick={handleSetIsPasswordRecovery}>Zapomniałeś hasła?</span>
 
-                <div className="loginwithsocialmedia">
+               {/* <div className="loginwithsocialmedia">
                     <span>Zaloguj się przez</span>
                     <div className="socialicon">
                         <FacebookLogin appId="135339998730013" callback={responseFacebook}
@@ -90,7 +90,7 @@ const LogIn = () => {
                             clientId="1234567890-abc123def456.apps.googleusercontent.com"
                             render={renderProps => ( <img src={googleIcon} onClick={renderProps.onClick} alt="" />) } onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={'single_host_origin'} />
                     </div>
-                </div></>}
+                </div>*/}</>}
             </form> 
             </Zoom>
         </div>

@@ -6,9 +6,25 @@ import '../../../Styles/PagesStyles/StepWidget.css';
 
 const StepWidget = (props) => {
     const isSubmitRequired = () => {
-        props.setStep(props.step + 1)
-        if(props.step === 2) {
+        if(props.step === 0) {
+            if(props.titleAccepted && props.ideaAccepted) {
+                props.setStep(1)
+            }   else {
+                props.toggleIdeaError()
+                props.setStep(0)
+            }
+        }   else if(props.step === 1) {
+
+            if(props.nameAccepted && props.emailAccepted && props.reasonAccepted) {
+                props.setStep(2)
+            }   else {
+                props.setStep(1)
+                props.setPDBoxError()
+            }
+
+        } else if(props.step === 2) {
             props.submit()
+            props.setStep(3)
         }
     }
     return ( 

@@ -37,6 +37,18 @@
     width: 100%;
     text-align: center;
 }
-.idea__form > form > div {
+.idea__form > form > p {
+    text-align: center;
+}
+.idea__form > form > img {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.idea__form > form > span {
     margin-bottom: 1.5em;
+    margin-top: .2em;
+    font-size: .8rem;
+    padding: 0 5px;
+    color: red;
 }
