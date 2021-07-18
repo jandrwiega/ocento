@@ -59,4 +59,12 @@ app.post('/useridea', (req, res)=> {
 app.get('/db/praca', (req, res)=> {
     res.sendFile(path.join(dirname + '/database/advertisments.json'))
 })
+app.post('/praca/aplikacja/:id', (req, res)=> {
+    const params = req.params;
+    const name = req.body.name;
+    const email = req.body.email;
+    const file = req.body.file;
+
+    console.log(name, email, file, params.id);
+})
 //--Middleware for praca link--//

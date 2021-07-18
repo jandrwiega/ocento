@@ -1,0 +1,23 @@
+.app__sub--wrapper {
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+.app__sub--wrapper > img {
+    max-width: 300px;
+}
+.app__sub--wrapper > h2 {
+    width: 100%;
+    text-align: center;
+    margin: .3em 0;
+}
+.app__sub--wrapper > p {
+    width: 100%;
+    text-align: center;
+}

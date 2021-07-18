@@ -110,10 +110,12 @@ const Idea = () => {
     }
     return ( 
         <div className="idea__wrapper">
+            <div className="stepwidget--header">
+               <h1>Podziel się swoim pomysłem na rozwój tej strony</h1>
+            </div>
             <div className="idea__form">
                 <form>
                     {step === 0 ? <> 
-                        <h2>Twój pomysł</h2>
                         <TextField value={title} onChange={handleSetTitle} id="outlined-basic" label="Tytuł" variant="outlined" />
                         { !titleAccept && ideaBoxError ? <span>To pole musi zawierać od 10 do 100 znaków</span> : <span></span> }
                         <TextField value={idea} onChange={handleSetInputIdea} id="outlined-multiline-static" variant='outlined' label="Twój pomysł"  multiline rows={4}/>
