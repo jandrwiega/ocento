@@ -8,6 +8,8 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import MainPage from './Pages/MainPage'
 import Works from './Pages/Works'
+import Privacy from './Pages/Legal/Privacy';
+import Terms from './Pages/Legal/Terms'
 
 import Idea from './Pages/Idea';
 
@@ -27,10 +29,16 @@ const App = () => {
                         <Route exact path='/' children={<MainPage />} />
                         <Route exact path='/pomysly' children={<Idea />} />
                         <Route exact path='/praca' children={<Works />} />
+                        <Route exact path='/polityka-prywatnosci' children={<Privacy />} />
+                        <Route exact path='/regulamin' children={<Terms />} />
                     </Switch>
                     </main>
                     <Switch>
                         <Route exact path='/' children={<Footer />} />
+                        <Route exact path='/pomysly' children={<Footer />} />
+                        <Route exact path='/praca' children={<Footer />} />
+                        <Route exact path='/polityka-prywatnosci' children={<Footer />} />
+                        <Route exact path='/regulamin' children={<Footer />} />
                     </Switch>
                 </Router>
             </AppProvider>

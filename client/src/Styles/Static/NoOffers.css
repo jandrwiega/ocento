@@ -1,0 +1,15 @@
+.nooffers__wrapper {
+    width: 100%;
+    max-width: 500px;
+}
+.nooffers__wrapper > img {
+    width: 100%;
+}
+.nooffers__wrapper > h2 {
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: .5em;
+}
+.nooffers__wrapper > p {
+    text-align: center;
+}

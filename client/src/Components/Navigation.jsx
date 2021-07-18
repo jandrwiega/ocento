@@ -52,8 +52,8 @@ const Navigation = () => {
                     <CloseIcon /> Zamknij menu
                 </div>
                 {isUserLogged ? null : <> 
-                    <Link to='/logowanie'><Button variant="outlined" color="secondary">Logowanie</Button></Link>
-                    <Link to='/rejstracja'><Button variant="outlined" color="secondary">Rejstracja</Button></Link>
+                    <Link to='/logowanie' onClick={showMobileMenuToggleButtonRef}><Button variant="outlined" color="secondary">Logowanie</Button></Link>
+                    <Link to='/rejstracja' onClick={showMobileMenuToggleButtonRef}><Button variant="outlined" color="secondary">Rejstracja</Button></Link>
                 </>}
             </div>
         </nav>

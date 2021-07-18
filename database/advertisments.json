@@ -1,0 +1,16 @@
+{
+    "Advertisments": [
+        {
+            "id": "1",
+            "title": "Junior Front-End Developer",
+            "skills": ["JavaScript", "Css", "React", "Node.js (początkujący)"],
+            "Added_Date": "2021-07-18"
+        },
+        {
+            "id": "2",
+            "title": "Junior Backend Developer",
+            "skills": ["JavaScript", "Node.js"],
+            "Added_Date": "2021-07-15"
+        }
+    ]
+}

@@ -54,3 +54,9 @@ app.post('/useridea', (req, res)=> {
     console.log(title, idea, name, email, reason);
 })
 //--Middleware form userForms--//
+
+//Middleware for praca link
+app.get('/db/praca', (req, res)=> {
+    res.sendFile(path.join(dirname + '/database/advertisments.json'))
+})
+//--Middleware for praca link--//
