@@ -28,10 +28,19 @@
 .register__wrapper > form > div {
     max-width: 350px;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: .2em;
 }
 .register__wrapper > form > div:nth-child(6) {
     margin-bottom: .5em;
+}
+.register__wrapper > form > span {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 1em;
+    padding: 0 5px;
+    font-size: 0.8rem;
+    color: red;
 }
 .register__wrapper > form > label {
     width: 100%;

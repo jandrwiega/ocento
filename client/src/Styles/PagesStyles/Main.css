@@ -1,0 +1,21 @@
+@media(max-width: 799px) {
+    .main__wrapper {
+        min-height: calc(100vh - 50px - 1em);
+        padding: .5em 1em;
+    }
+}
+
+@media(min-width: 800px) and (max-width: 1199px) {
+    .main__wrapper {
+        min-height: calc(100vh - 50px - 2em);
+        padding: 1em 1.5em;
+    }
+}
+
+
+@media(min-width: 1200px) {
+    .main__wrapper {
+        min-height: calc(100vh - 50px - 3em);
+        padding: 1.5em 2em;
+    }
+}

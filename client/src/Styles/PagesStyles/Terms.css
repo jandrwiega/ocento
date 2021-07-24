@@ -1,0 +1,31 @@
+.back__btn {
+    padding: .5em 1.5em;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: .5em;
+    color: #34495E;
+    border-radius: 10px;
+    border: 1px solid #34495E;
+    text-decoration: none;
+}
+.back__btn > svg {
+    margin-right: .3em;
+}
+.terms__wrapper {
+    width: 100%;
+  }
+  @media(max-width: 599px) {
+    .terms__wrapper {
+      padding: 1em 1em 6em 1em;
+    }
+  }
+  @media(min-width: 600px) {
+    .terms__wrapper {
+      padding: 2em 3em 7em 3em;
+    }
+  }
+
+  .terms__wrapper > ul {
+      list-style-position: inside;
+  }

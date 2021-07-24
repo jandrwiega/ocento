@@ -47,7 +47,7 @@ const Idea = () => {
     const handleSetTitle = (e) => {
         const value = e.target.value;
         setTitle(value)
-        const reg =  /^([a-zA-Z]){10,100}$/
+        const reg =  /^([a-zA-Z ]){10,100}$/
         if(reg.test(value)) {
             setTitleAccept(true)
         }   else {
@@ -57,7 +57,7 @@ const Idea = () => {
     const handleSetInputIdea = (e) => {
         const value = e.target.value;
         setIdea(value)
-        const reg =  /^([a-zA-Z]){50,2000}$/
+        const reg =  /^([a-zA-Z ]){50,2000}$/
         if(reg.test(value)) {
             setIdeaAccepted(true)
         }   else {
@@ -88,7 +88,7 @@ const Idea = () => {
     const handleSetReason = (e) => {
         const value = e.target.value
         setReason(value)
-        const reg = /^([a-zA-Z]){10,100}$/
+        const reg = /^([a-zA-Z ]){10,100}$/
         if(reg.test(value)) {
             setReasonAccepted(true)
         }   else {

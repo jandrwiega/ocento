@@ -1,19 +1,25 @@
-import { useContext, useEffect } from 'react';
-import { AppContext } from '../../Context/AppContext';
+import { useEffect } from 'react';
+//import { Switch, Route } from 'react-router-dom';
+//import { AppContext } from '../../Context/AppContext';
+
+import '../../Styles/PagesStyles/Main.css'
 
 const MainPage = () => {
-    const { isUserLogged } = useContext(AppContext)
+   // const { isUserLogged } = useContext(AppContext)
     useEffect(()=> {
         const wrapper = document.querySelector('.wrapper');
         const nav = document.querySelector('nav');
-        nav.removeAttribute('id')
+        if(nav != null) {
+            nav.removeAttribute('id')
+        }
         wrapper.removeAttribute('id')
     }, [])
     return ( 
-        <>
-        strona glowna, natomiast uzytkownik jest {isUserLogged ? 'zalogowany' : 'niezalogowany'}
-        </>
+        <div className="main__wrapper">
+            
+        </div>
      );
 }
  
 export default MainPage;
+

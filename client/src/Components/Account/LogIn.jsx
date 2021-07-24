@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../Context/AppContext';
+import Cookies from 'universal-cookie';
+import { Redirect } from 'react-router-dom'
 //import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 //import { GoogleLogin } from 'react-google-login';
 
@@ -15,7 +17,7 @@ import '../../Styles/AccountStyles/LogIn.css'
 import Zoom from 'react-reveal/Zoom';
 
 const LogIn = () => {
-    const { fetchLink } = useContext(AppContext)
+    const { fetchLink, setIsUserLogged, setLoginData } = useContext(AppContext)
 
     /*const responseFacebook = (response) => {
         console.log(response);
@@ -23,6 +25,7 @@ const LogIn = () => {
     const responseGoogle = (response) => {
         console.log(response);
       }*/
+    const [redirect, setRedirect] = useState(false)
 
     useEffect(()=> {
         const wrapper = document.querySelector('.wrapper');
@@ -57,6 +60,27 @@ const LogIn = () => {
             },
             body: JSON.stringify(loginObject)
         })
+        .then(response => response.json())
+        .then(data => setLogData(data))
+    }
+
+    const setLogData = (data) => {
+        const cookies = new Cookies()
+
+        setIsUserLogged(data.isLogged)
+        setLoginData(data.loginData)
+        if(data.keepLogged) {
+            cookies.set('isLogged', data.isLogged, {
+                maxAge: '31556926'
+            })
+            cookies.set('userData', data.loginData, {
+                maxAge: '31556926'
+            })
+        }   else {
+            cookies.set('isLogged', data.isLogged)
+            cookies.set('userData', data.loginData)
+        }
+        setRedirect(true)
     }
 
     const [isPasswordRecovery, setIsPasswordRecovery] = useState(false)
@@ -64,14 +88,34 @@ const LogIn = () => {
         setIsPasswordRecovery(!isPasswordRecovery)
     }
 
+    const [resetEmail, setResetMail] = useState('')
+    const handleSetResetEmail = (e) => {
+        setResetMail(e.target.value)
+    }
+
+    const handleResetPassword = (e, email) => {
+        e.preventDefault();
+        const rData = {
+            resetEmail
+        }
+        fetch(fetchLink+'resetpassword', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify(rData)
+        })
+    }
+
     return ( 
         <div className="login__wrapper">
             <Zoom>
-            <form onSubmit={isPasswordRecovery ? null : handleSubmitLogin}>
-                {isPasswordRecovery ? <ResetForm goback={handleSetIsPasswordRecovery}/>  : <> 
+            <form onSubmit={isPasswordRecovery ? handleResetPassword : handleSubmitLogin}>
+            {redirect ? <Redirect push to='/' /> : null }
+                {isPasswordRecovery ? <ResetForm remail={resetEmail} setreset={handleSetResetEmail} goback={handleSetIsPasswordRecovery}/>  : <> 
                 <h2>Logowanie</h2>
                 <TextField value={login} onChange={handleSetLogin} id="outlined-basic" label="Login" variant="outlined" />
-                <TextField value={password} onChange={handleSetPassword} id="outlined-basic" label="Password" variant="outlined" />
+                <TextField type='password' value={password} onChange={handleSetPassword} id="outlined-basic" label="Password" variant="outlined" />
                 <label>
                     <Checkbox checked={keepLogged} onChange={handleSetKeepLogged} color="primary"/>
                     Nie wylogowywuj mnie
