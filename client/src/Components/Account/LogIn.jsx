@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 //import { GoogleLogin } from 'react-google-login';
 
 import ResetForm from './ResetForm';
+import Loading from '../Static/Loading'
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -39,6 +40,9 @@ const LogIn = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [keepLogged, setKeepLogged] = useState(true);
+    const [loginPending, setLoginPending] = useState(false)
+    const [isLoginError, setIsLoginError] = useState(false)
+
     const handleSetLogin = (e) => {
         setLogin(e.target.value)
     }
@@ -50,6 +54,7 @@ const LogIn = () => {
     }
     const handleSubmitLogin = (e) => {
         e.preventDefault();
+        setLoginPending(true)
         const loginObject = {
             login, password, keepLogged
         }
@@ -66,7 +71,9 @@ const LogIn = () => {
 
     const setLogData = (data) => {
         const cookies = new Cookies()
-
+        if(data.loginError === 'error') {
+            setIsLoginError(true)
+        }   else {
         setIsUserLogged(data.isLogged)
         setLoginData(data.loginData)
         if(data.keepLogged) {
@@ -80,7 +87,12 @@ const LogIn = () => {
             cookies.set('isLogged', data.isLogged)
             cookies.set('userData', data.loginData)
         }
-        setRedirect(true)
+        if(data.isLogged) {
+            setRedirect(true)
+        }   else {
+
+        }}
+        setLoginPending(false)
     }
 
     const [isPasswordRecovery, setIsPasswordRecovery] = useState(false)
@@ -93,8 +105,13 @@ const LogIn = () => {
         setResetMail(e.target.value)
     }
 
+    const [submitReset, setSubmitReset] = useState(false)
+    const handleSetIsSubmit = () => {
+        setSubmitReset(true)
+    }
     const handleResetPassword = (e, email) => {
         e.preventDefault();
+        handleSetIsSubmit()
         const rData = {
             resetEmail
         }
@@ -107,12 +124,19 @@ const LogIn = () => {
         })
     }
 
+    const handleTryLoginAgain = () => {
+        setLoginPending(false)
+        setIsLoginError(false)
+    }
+
     return ( 
         <div className="login__wrapper">
             <Zoom>
             <form onSubmit={isPasswordRecovery ? handleResetPassword : handleSubmitLogin}>
+            {isLoginError ? <ErrorLogin tryagain={handleTryLoginAgain}/> : <>
+            {loginPending ? <Loading /> : <>
             {redirect ? <Redirect push to='/' /> : null }
-                {isPasswordRecovery ? <ResetForm remail={resetEmail} setreset={handleSetResetEmail} goback={handleSetIsPasswordRecovery}/>  : <> 
+                {isPasswordRecovery ? <ResetForm isSubmit={submitReset} remail={resetEmail} setreset={handleSetResetEmail} goback={handleSetIsPasswordRecovery}/>  : <> 
                 <h2>Logowanie</h2>
                 <TextField value={login} onChange={handleSetLogin} id="outlined-basic" label="Login" variant="outlined" />
                 <TextField type='password' value={password} onChange={handleSetPassword} id="outlined-basic" label="Password" variant="outlined" />
@@ -134,7 +158,7 @@ const LogIn = () => {
                             clientId="1234567890-abc123def456.apps.googleusercontent.com"
                             render={renderProps => ( <img src={googleIcon} onClick={renderProps.onClick} alt="" />) } onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={'single_host_origin'} />
                     </div>
-                </div>*/}</>}
+                </div>*/}</>}</>}</> }
             </form> 
             </Zoom>
         </div>
@@ -142,3 +166,13 @@ const LogIn = () => {
 }
  
 export default LogIn;
+
+const ErrorLogin = (props) => {
+    return ( 
+        <>
+            <h2>Nie udało się zalogować</h2>
+            <p>Coś poszło nie tak upewnij się że wprowadzasz poprawne dane logowania lub zresetuj hasło</p>
+            <Button variant="outlined" color="primary" onClick={props.tryagain}>Spróbuj ponownie</Button>
+        </>
+     );
+}

@@ -8,8 +8,8 @@ import '../../Styles/AccountStyles/Register.css'
 import Zoom from 'react-reveal/Zoom';
 
 import UserAdded from './Static/UserAdded'
+import Loading from '../Static/Loading'
 import RegisterError from './Static/RegisterError'
-
 
 const Register = () => {
 
@@ -94,8 +94,11 @@ const Register = () => {
         setAcceptTerm(checked)
     }
 
+    const [regPending, setRegPending] = useState(false)
+
     const handleSubmitRegisterForm = (e) => {
         e.preventDefault();
+        setRegPending(true)
         if(nameAccepted && surnameAccepted && emailAccepted && passwordAccepted && acceptTerm) {
         const registerObject = {
             name, surname, email, password
@@ -112,13 +115,14 @@ const Register = () => {
         }   else {
             setValidationEnable(true)
         }
+        setRegPending(false)
     }
 
     return ( 
         <div className="register__wrapper">
             <Zoom>
             <form onSubmit={handleSubmitRegisterForm}>
-            {registerResponse === '' ?  <>
+            {registerResponse === '' && !regPending ?  <>
                 <h2>Rejstracja</h2>
                 <TextField value={name} onChange={handleSetName} id="outlined-basic" label="Imię" variant="outlined" />
                 { validationEnable ? nameAccepted ? <span></span> : <span>To pole musi zawierać od 3 do 40 znaków</span> : <span></span> }
@@ -136,13 +140,12 @@ const Register = () => {
                 </label>
 
                 <Button type='submit' variant="outlined" color="primary">Zarejstruj</Button>
-                  </>  : null}
+                </>  : null}
+                {registerResponse === '' && regPending ? <Loading /> : null}
                 {registerResponse === 'added' ? <UserAdded /> : null }
                 {registerResponse === 'error' ? <RegisterError tryagain={handleTryAgain}/> : null }
             </form> 
-            
             </Zoom>
-            
         </div>
      );
 }

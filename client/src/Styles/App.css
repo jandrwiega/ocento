@@ -2,7 +2,7 @@
     
 }
 #loginNavBg {
-    background-color: rgba(0,0,0, .1);
+    background-color: transparent;
 }
 #loginWrapperBg {
     background-color: #ffaa00;
@@ -11,7 +11,7 @@
     background-size: cover;
 }
 #registerNavBg {
-    background-color: rgba(0,0,0, .1);
+    background-color: transparent;
 }
 #registerWrapperBg {
     background-color: #ee5522;

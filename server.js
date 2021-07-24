@@ -38,7 +38,7 @@ app.post('/login', (req, res)=> {
     connection.query(sql, (error, results)=> {
         if(error) throw error;
         if(results[0] === undefined) {
-            res.send({isLogged: false, loginData: [], keepLogged: false})
+            res.send({loginError: 'error'})
         }   else {
             res.send({isLogged: true, loginData: results[0], keepLogged})
         }
